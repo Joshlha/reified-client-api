@@ -1,0 +1,15 @@
+{
+    "env": {
+        "browser": false,
+        "node": true
+    },
+    "extends": [
+        "standard-with-typescript"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "rules": {
+    }
+}
