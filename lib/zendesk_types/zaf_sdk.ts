@@ -1,7 +1,3 @@
-export declare var ZAFClient: {
-    init(): Client
-}
-
 export declare class Client {
     /**
      * Requests context for the app, such as the host and location. Depending on the location, the context may provide additional identifiers that you can use with the REST API to request additional data.
