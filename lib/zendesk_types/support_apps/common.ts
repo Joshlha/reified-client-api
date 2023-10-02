@@ -1,7 +1,7 @@
-import { OrganizationSidebarTypes } from "./organization_sidebar"
+import { Organization } from "./organization_sidebar"
 
 // Actions
-export type Resize = (dims: { width: string, height: string }) => { width: string, height: string }
+export type Resize = (dims: { width: number, height: number } | { width: number } | { height: number }) => { width: string, height: string }
 export type Create = (newInstance: { 
                             location: string, 
                             url: string, 
@@ -31,7 +31,7 @@ export interface User {
     readonly id: number
     readonly email: string
     readonly groups: Group[]
-    readonly organizations: OrganizationSidebarTypes.Organization[]
+    readonly organizations: Organization[]
     readonly identities: Identity[]
     readonly name: string
     readonly role: string | number

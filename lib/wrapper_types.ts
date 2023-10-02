@@ -1,5 +1,5 @@
 import { User, UserSetters } from "./zendesk_types/support_apps/common"
-import { OrganizationSidebarTypes } from "./zendesk_types/support_apps/organization_sidebar"
+import { Organization, OrganizationSetters } from "./zendesk_types/support_apps/organization_sidebar"
 import { Comment, Ticket, TicketSetters, Form, FormSetters, CommentSetters } from "./zendesk_types/support_apps/ticket_sidebar"
 
 export type ZendeskEvent<T> = { _path: string }
@@ -73,4 +73,4 @@ export type RelatedTypes<T> = T extends Ticket ? TicketSetters :
                        T extends User ? UserSetters : 
                        T extends Form ? FormSetters : 
                        T extends Comment ? CommentSetters :
-                       T extends OrganizationSidebarTypes.Organization ? OrganizationSidebarTypes.OrganizationSetters : never
+                       T extends Organization ? OrganizationSetters : never

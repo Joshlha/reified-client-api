@@ -1,5 +1,5 @@
 import { Group, User, Identity, TimeZone } from "./common"
-import { OrganizationSidebarTypes } from "./organization_sidebar"
+import { Organization } from "./organization_sidebar"
 
 export type ChannelName = 'web' | 'internal' | 'voice' | 'chat' | 'native_messaging' | 'line' | 'wechat' | 'sunshine_conversations_twitter_dm' | 'sunshine_conversations_facebook_messenger' | 'instagram_dm' | 'whatsapp' | 'any_channel' | 'twitter' | 'facebook' | 'api' | 'chat_transcript'
 export type Priority = 'low' | 'normal' | 'high' | 'urgent'
@@ -44,7 +44,7 @@ export interface Ticket {
     readonly form: Form
     readonly id: number
     readonly isNew: boolean
-    readonly organization: OrganizationSidebarTypes.Organization
+    readonly organization: Organization
     readonly postSaveAction: string
     priority: Priority
     recipient: string
@@ -127,7 +127,7 @@ export interface CollisionUser {
     readonly id: number
     readonly email: string
     readonly groups: Group[]
-    readonly organizations: OrganizationSidebarTypes.Organization[]
+    readonly organizations: Organization[]
     readonly identities: Identity[]
     readonly name: string
     readonly role: string | number

@@ -112,7 +112,7 @@ export declare class Client {
     trigger(name: string, data?: any): void
 }
 
-export declare interface ClientRequestOptions {
+export interface ClientRequestOptions {
     accepts?: any,
     autoRetry?: boolean,
     cache?: boolean,

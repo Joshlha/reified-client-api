@@ -1,13 +1,13 @@
 import { newIndexable, newIndexableActionPath } from "./helpers"
 import { ZendeskEvent, ZendeskObject, ZendeskProperty, ZendeskAction, ZendeskActionPath, IndexableActionPath, ZendeskIndexable } from "./wrapper_types"
 import { User, AppsTray, Account, Visible, Show, Hide, Notify, RouteTo } from "./zendesk_types/support_apps/common"
-import { ModalTypes } from "./zendesk_types/support_apps/modal"
-import { NavbarTypes } from "./zendesk_types/support_apps/navbar"
-import { OrganizationSidebarTypes } from "./zendesk_types/support_apps/organization_sidebar"
-import { TicketEditorTypes } from "./zendesk_types/support_apps/ticket_editor"
+import { Destroy, ModalClose } from "./zendesk_types/support_apps/modal"
+import { IconSymbol, IconChars, AppRouteChanged } from "./zendesk_types/support_apps/navbar"
+import { Organization, OrganizationProfilePage } from "./zendesk_types/support_apps/organization_sidebar"
 import { CollisionUser, Ticket, Comment, CommentType, Priority, TicketStatus, TicketType, Channel, EnableSave, DisableSave, TicketField } from "./zendesk_types/support_apps/ticket_sidebar"
-import { TopBarTypes } from "./zendesk_types/support_apps/topbar"
-import { UserSidebarTypes } from "./zendesk_types/support_apps/user_sidebar"
+import { Popover } from "./zendesk_types/support_apps/topbar"
+import { UserFields } from "./zendesk_types/support_apps/user_sidebar"
+import { TicketEditor } from "./zendesk_types/support_apps/ticket_editor"
 
 export namespace Support {
     export namespace Common {
@@ -1145,7 +1145,7 @@ export namespace Support {
         }
 
         export namespace Actions {
-            export const userFields: IndexableActionPath<UserSidebarTypes.UserFields> = (i) => {
+            export const userFields: IndexableActionPath<UserFields> = (i) => {
                 return {
                     show: { _path: `userFields${i}.show` },
                     hide: { _path: `userFields${i}.hide` },
@@ -1252,7 +1252,7 @@ export namespace Support {
         }
 
         export namespace Objects {
-            export const organization: ZendeskObject<OrganizationSidebarTypes.Organization> = {
+            export const organization: ZendeskObject<Organization> = {
                 _path: "organization",
                 name: { _path: "organization.name" },
                 id: { _path: "organization.id" },
@@ -1275,7 +1275,7 @@ export namespace Support {
                 domains: { _path: "organization.domains", _writeType: "" },
             }
 
-            export const organizationFields: ZendeskIndexable<OrganizationSidebarTypes.OrganizationProfilePage.Field[]> = newIndexable(
+            export const organizationFields: ZendeskIndexable<OrganizationProfilePage.Field[]> = newIndexable(
                 "organizationFields",
                 (i) => {
                     return {
@@ -1295,7 +1295,7 @@ export namespace Support {
         }
 
         export namespace Actions {
-            export const organizationFields: IndexableActionPath<OrganizationSidebarTypes.OrganizationProfilePage.Field[]> = newIndexableActionPath((i) => {
+            export const organizationFields: IndexableActionPath<OrganizationProfilePage.Field[]> = newIndexableActionPath((i) => {
                 return {
                     hide: { _path: `organizationFields${i}.hide` },
                     show: { _path: `organizationFields${i}.show` },
@@ -1307,13 +1307,13 @@ export namespace Support {
 
     export namespace TopBar {
         export namespace Actions {
-            export const popover: ZendeskAction<TopBarTypes.Popover> = { _path: "popover" }
+            export const popover: ZendeskAction<Popover> = { _path: "popover" }
 
             export const preloadPane: ZendeskAction<() => void> = { _path: "preloadPane" }
             
-            export const iconSymbol: ZendeskAction<TopBarTypes.IconSymbol> = { _path: "iconSymbol" }
+            export const iconSymbol: ZendeskAction<IconSymbol> = { _path: "iconSymbol" }
 
-            export const iconChars: ZendeskAction<TopBarTypes.IconChars> = { _path: "iconChars" }
+            export const iconChars: ZendeskAction<IconChars> = { _path: "iconChars" }
 
         }
 
@@ -1329,9 +1329,9 @@ export namespace Support {
         export namespace Actions {
             export const preloadPane: ZendeskAction<() => void> = { _path: "preloadPane" }
             
-            export const iconSymbol: ZendeskAction<NavbarTypes.IconSymbol> = { _path: "iconSymbol" }
+            export const iconSymbol: ZendeskAction<IconSymbol> = { _path: "iconSymbol" }
 
-            export const iconChars: ZendeskAction<NavbarTypes.IconChars> = { _path: "iconChars" }
+            export const iconChars: ZendeskAction<IconChars> = { _path: "iconChars" }
         }
 
         export namespace Events {
@@ -1341,7 +1341,7 @@ export namespace Support {
             }
             export namespace app {
                 export namespace route {
-                    export const changed: ZendeskEvent<NavbarTypes.AppRouteChanged> = { _path: "app.route.changed" }
+                    export const changed: ZendeskEvent<AppRouteChanged> = { _path: "app.route.changed" }
                 }
             }
         }
@@ -1349,12 +1349,12 @@ export namespace Support {
 
     export namespace Modal {
         export namespace Actions {
-            export const destroy: ZendeskAction<ModalTypes.Destroy> = { _path: "destroy" }
+            export const destroy: ZendeskAction<Destroy> = { _path: "destroy" }
         }
 
         export namespace Events {
             export namespace modal {
-                export const close: ZendeskEvent<ModalTypes.ModalClose> = { _path: "modal.close" }
+                export const close: ZendeskEvent<ModalClose> = { _path: "modal.close" }
             }
         }
     }
@@ -1375,7 +1375,7 @@ export namespace Support {
     
         export namespace Actions {
             export namespace ticket {
-                export const editor: ZendeskActionPath<TicketEditorTypes.TicketEditor> = {
+                export const editor: ZendeskActionPath<TicketEditor> = {
                     insert: { _path: "ticket.editor.insert" },
                     indent: { _path: "ticket.editor.indent" },
                     outdent: { _path: "ticket.editor.outdent" },
@@ -1399,7 +1399,7 @@ export namespace Support {
     
         export namespace Objects {
             export namespace ticket {
-                export const editor: ZendeskObject<TicketEditorTypes.TicketEditor> = {
+                export const editor: ZendeskObject<TicketEditor> = {
                     _path: "ticket.editor",
                     targetChannel: { 
                         _path: "ticket.editor.targetChannel",

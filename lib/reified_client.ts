@@ -2,7 +2,7 @@ import { ZendeskEvent, ZendeskObjectPath, ZendeskWritableObject, ZendeskWritable
 import { MetaData } from "./zendesk_types/support_apps/common"
 import { Client, ClientRequestOptions } from "./zendesk_types/zaf_sdk"
 
-export default class ReifiedClient {
+export class ReifiedClient {
   zafClient: Client
 
   constructor(client: Client) {
