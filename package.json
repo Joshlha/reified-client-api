@@ -4,16 +4,26 @@
     "description": "A Typescript ZAFClient wrapper for Zendesk app development.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "keywords": ["typescript", "zendesk", "zafclient"],
+    "keywords": [
+        "typescript",
+        "zendesk",
+        "zafclient"
+    ],
     "author": "Joshua Hansen",
     "devDependencies": {
+        "@babel/core": "^7.23.0",
+        "@babel/preset-env": "^7.22.20",
+        "@babel/preset-typescript": "^7.23.0",
+        "@jest/globals": "^29.7.0",
+        "babel-jest": "^29.7.0",
         "eslint": "^8.50.0",
+        "jest": "^29.7.0",
         "typescript": "^5.2.2"
     },
     "scripts": {
         "build": "tsc",
         "prepublish": "npm run build",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest"
     },
     "homepage": "https://github.com/Joshlha/reified-client-api#readme",
     "repository": {
