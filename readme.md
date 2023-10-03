@@ -60,7 +60,7 @@ Types representing actual Zendesk objects or functions which are returned from o
 
 ## Contribution
 
-Contributions of any kind (additional tools, polish to existing tools, test files) are welcome.
+Contributions of any kind (additional API support, polish to existing APIs, test files) are welcome.
 
 ## Disclaimer
 
