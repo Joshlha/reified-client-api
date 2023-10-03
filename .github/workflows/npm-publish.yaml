@@ -3,6 +3,7 @@ run-name: Starting build and publish to npm.
 on:
   release:
     types: [published]
+  workflow_dispatch:
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
