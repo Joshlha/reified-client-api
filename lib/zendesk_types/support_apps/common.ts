@@ -1,7 +1,7 @@
 import { Organization } from "./organization_sidebar"
 
 // Actions
-export type Resize = (dims: { width: number, height: number } | { width: number } | { height: number }) => { width: string, height: string }
+export type Dimension = (dims: { width: number | string, height: number | string } | { width: number | string } | { height: number | string }) => { width: string, height: string }
 export type Create = (newInstance: { 
                             location: string, 
                             url: string, 
