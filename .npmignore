@@ -4,3 +4,4 @@ package-lock.json
 .eslintrc.json
 babel.config.js
 main_test.test.ts
+.github/

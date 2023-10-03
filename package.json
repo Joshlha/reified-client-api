@@ -1,6 +1,6 @@
 {
     "name": "reified-client-api",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "description": "A Typescript ZAFClient wrapper for Zendesk app development.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
