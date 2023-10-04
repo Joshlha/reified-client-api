@@ -1,5 +1,11 @@
 # Reified Client API
 
+> ### re·i·fy
+> /ˈrēəˌfī/<br>
+> *verb* **formal**<br>
+> make (something abstract) more concrete or real<br>
+> *"these instincts are, in humans, reified as verbal constructs"*
+
 A typescript API to help Zendesk app developers with creating type-safe projects. 
 
 ## Features
