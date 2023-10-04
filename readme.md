@@ -132,7 +132,7 @@ Since types are only implemented for the `Support` and `Core` APIs, there is sti
     - [ ] Note Editor
     - [ ] Visit Composer
 
-Types representing actual Zendesk objects or functions which are returned from or passed to API calls are kept in `lib/zendesk_types`. The actual API, along with the helper types and functions that make it work, is simply in `lib/` and current has the `Core` and `Support` packages.
+Types representing actual Zendesk objects or functions which are returned from or passed to API calls are kept in `lib/zendesk_types`. The actual API, along with the helper types and functions that make it work, are simply in `lib/` and currently contains the `Core` and `Support` APIs.
 
 ## Contribution
 
