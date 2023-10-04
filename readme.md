@@ -48,7 +48,7 @@ client.invoke(Support.TicketSidebar.Actions.ticketFields(2).enable)
 ```
 
 ### Getting custom fields
-The `custom_field` path is only available for a few zendesk objects such as ticket or user.
+The `custom_field` path is only available for a few zendesk objects, such as ticket or user.
 - Ensure non-null assertions are enabled by your linter or IDE
 - Place the assertion after `custom_field` before the invokation
 - The `custom_field` callable object will return a type of `unknown` by default. You must specify the type via a type parameter or by casting.
@@ -59,8 +59,8 @@ const customUserField = await client.get(Support.UserSidebar.Objects.user.custom
 ```
 
 ### Indexable objects and properties
-You can get individual elements of indexable objects and properties via their callable object paths, and passing in either an integer or string.
-Refer to the ZAFClient api for which to use. Most indexables can take either an integer index or a string DD
+You can get individual elements of indexable objects and properties via their callable object paths and passing in either an integer or string.
+Refer to the ZAFClient api for which to use. Most indexables can take either an integer index or a string ID.
 ```
 const firstGroupNameOfSecondCommentAuthor = await client.get(Support.TicketSidebar.Objects.ticket.comments(2).author.groups(1).name)
 ```
