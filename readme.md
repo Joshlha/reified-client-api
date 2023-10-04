@@ -4,7 +4,77 @@ A typescript API to help Zendesk app developers with creating type-safe projects
 
 ## Features
 
-*This section is WIP*
+No more typos - the full ZAFClient API is available via type-safe paths to the objects, events, or actions you wish to access.
+
+No more passing in the string you just gave the ZAFClient to get the actual object. 
+```
+// Old syntax
+const ticketObject = (await client.get("ticket"))["ticket"]
+
+// New syntax
+const ticketObject = await client.get(Support.TicketSidebar.Objects.ticket)
+```
+
+The API is broken up first by Zendesk API, then the path type (Event, Object, Action), then then app location
+
+### Getting an object
+```
+const ticket = await client.get(Support.TicketSidebar.Objects.ticket) // Returns object of type Ticket
+console.log(ticket.assignee)
+/*
+{
+    user: { /* user object */ },
+    group: { /* group object */ }
+}
+*/
+```
+
+### Handling an event
+```
+client.on(Core.Events.app.registered, (appData: any) => {
+    // do stuff
+})
+```
+
+### Invoking an action
+```
+client.invoke(Support.TicketSidebar.Actions.ticketFields(2).enable)
+```
+
+### Getting custom fields
+The `custom_field` path is only available for a few zendesk objects such as ticket or user.
+- Ensure non-null assertions are enabled by your linter or IDE
+- Place the assertion after `custom_field` before the invokation
+- The `custom_field` callable object will return a type of `unknown` by default. You must specify the type via a type parameter or by casting.
+```
+const customUserField = await client.get(Support.UserSidebar.Objects.user.custom_field!<string>("CustomFieldID"))
+// or
+const customUserField = await client.get(Support.UserSidebar.Objects.user.custom_field!("CustomFieldID")) as string
+```
+
+### Indexable objects and properties
+You can get individual elements of indexable objects and properties via their callable object paths, and passing in either an integer or string.
+Refer to the ZAFClient api for which to use. Most indexables can take either an integer index or a string DD
+```
+const firstGroupNameOfSecondCommentAuthor = await client.get(Support.TicketSidebar.Objects.ticket.comments(2).author.groups(1).name)
+```
+
+### Getting multiple objects at once
+The API also supports the "bulk" get function, though you will need to index into the returned object to get the actual object.
+
+Conveniently, you can use the `_path` property to get the underlying string value which is passed to the client. Putting it all together would look like this.
+```
+const objsToGet = [
+    Support.TicketSidebar.Objects.ticket.comment,
+    Support.Common.Objects.currentUser
+]
+
+const returnedObj = await client.get(objsToGet) // type: { [key: string]: any }
+
+// Comment and User interfaces are available for import, along with many others
+const commentObj = returnedObj[objsToGet[0]._path] as Comment
+const userObj = returnedObj[objsToGet[1]._path] as User 
+```
 
 ## Usage
 
