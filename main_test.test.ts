@@ -1,5 +1,6 @@
 import { expect, jest, test, describe } from '@jest/globals'
-import { Support } from './dist/index'
+import { ReifiedClient, Support } from './dist/index'
+import { User } from './dist/zendesk_types/support_apps/common'
 
 describe("Paths Test", () => {
     test("Test ticket path", () => {
