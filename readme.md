@@ -84,6 +84,8 @@ const userObj = returnedObj[objsToGet[1]._path] as User
 
 ## Usage
 
+*If you don't have a typescript project set up, see [this scaffold](https://github.com/Joshlha/zd-ts-react) for a Zendesk app written in Typescript*
+
 1. In your existing typescript project, run 
 ```
 npm i reified-client-api
