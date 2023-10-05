@@ -21,7 +21,7 @@ const ticketObject = (await client.get("ticket"))["ticket"]
 const ticketObject = await client.get(Support.TicketSidebar.Objects.ticket)
 ```
 
-The API is broken up first by Zendesk API, then the path type (Event, Object, Action), then then app location
+The API is broken up first by Zendesk API, then by app location, then by path type (Event, Object, Action).
 
 ### Getting an object
 ```
