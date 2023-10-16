@@ -1,4 +1,17 @@
-export type UserFieldName = 'access' | 'alias' | 'details' | 'groups' | 'locales' | 'notes' | 'organization' | 'organizations' | 'role' | 'signature' | 'tags' | 'timezone' | 'user_type'
+export type UserFieldName =
+    | "access"
+    | "alias"
+    | "details"
+    | "groups"
+    | "locales"
+    | "notes"
+    | "organization"
+    | "organizations"
+    | "role"
+    | "signature"
+    | "tags"
+    | "timezone"
+    | "user_type"
 
 export type UserFields = UserProfilePage.Field[]
 
@@ -7,7 +20,7 @@ export namespace UserProfilePage {
         readonly name: string
         readonly isVisible: boolean
         readonly options: FieldOption[]
-        
+
         show(): void
         hide(): void
         toggle(): void

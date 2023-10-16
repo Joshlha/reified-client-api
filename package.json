@@ -17,13 +17,19 @@
         "@jest/globals": "^29.7.0",
         "babel-jest": "^29.7.0",
         "eslint": "^8.50.0",
+        "eslint-config-prettier": "^9.0.0",
         "jest": "^29.7.0",
-        "typescript": "^5.2.2"
+        "prettier": "^3.0.3",
+        "typescript": "^5.2.2",
+        "@typescript-eslint/eslint-plugin": "^6.7.3",
+        "@typescript-eslint/parser": "6.7.5"
     },
     "scripts": {
         "build": "tsc",
         "prepublish": "npm run build",
-        "test": "jest"
+        "test": "jest",
+        "format": "npx prettier -w ./lib/",
+        "check": "npx prettier -c ./lib/"
     },
     "homepage": "https://github.com/Joshlha/reified-client-api#readme",
     "repository": {

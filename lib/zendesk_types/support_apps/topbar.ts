@@ -1,4 +1,10 @@
-export type Popover = (arg: { width: number | 'auto', height: number } | 'toggle' | 'hide' | 'show') => void
+export type Popover = (
+    arg:
+        | { width: number | "auto"; height: number }
+        | "toggle"
+        | "hide"
+        | "show",
+) => void
 
 export type IconSymbol = (symbolName: string) => void
 

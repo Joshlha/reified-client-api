@@ -1,23 +1,30 @@
 import { Organization } from "./organization_sidebar"
 
 // Actions
-export type Dimension = (dims: { width: number | string, height: number | string } | { width: number | string } | { height: number | string }) => { width: string, height: string }
-export type Create = (newInstance: { 
-                            location: string, 
-                            url: string, 
-                            size?: { width: string, height: string} }
-                        ) => any[]
+export type Dimension = (
+    dims:
+        | { width: number | string; height: number | string }
+        | { width: number | string }
+        | { height: number | string },
+) => { width: string; height: string }
+export type Create = (newInstance: {
+    location: string
+    url: string
+    size?: { width: string; height: string }
+}) => any[]
 
-export type Instances = { [instanceGuid: string]: {
-    instanceGuid: string,
-    host: string,
-    product: string,
-    location: string,
-    account: {
-        subdomain: string
-    },
-    status: string,
-} }
+export type Instances = {
+    [instanceGuid: string]: {
+        instanceGuid: string
+        host: string
+        product: string
+        location: string
+        account: {
+            subdomain: string
+        }
+        status: string
+    }
+}
 
 // Objects
 export interface Account {
@@ -80,13 +87,13 @@ export interface AppsTray {
 }
 
 export interface MetaData {
-    readonly instanceGuid: string,
-    readonly product: string,
+    readonly instanceGuid: string
+    readonly product: string
     readonly account: {
-        readonly subdomain: string,
-    },
-    readonly location: string,
-    readonly ticketId: number,
+        readonly subdomain: string
+    }
+    readonly location: string
+    readonly ticketId: number
 }
 
 // Addition Properties
@@ -95,11 +102,16 @@ export type Visible = boolean
 // Additional Actions
 export type Hide = () => void
 export type Show = () => void
-export type Notify = (message: string, kind?: 'notice' | 'alert' | 'error', options?: { sticky: boolean }) => void
+export type Notify = (
+    message: string,
+    kind?: "notice" | "alert" | "error",
+    duration?: number,
+    options?: { sticky: boolean },
+) => void
 export type RouteTo = (
-    tabType: 'ticket' | 'user' | 'views' | 'organization' | 'nav_bar',
+    tabType: "ticket" | "user" | "views" | "organization" | "nav_bar",
     id?: string | number,
     newTicket?: boolean,
     appName?: string,
-    appSection?: string, 
+    appSection?: string,
 ) => any

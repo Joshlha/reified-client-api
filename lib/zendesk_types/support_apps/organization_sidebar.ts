@@ -1,6 +1,13 @@
 import { Group } from "./common"
 
-export type OrganizationFieldName = 'tags' | 'domains' | 'group_id' | 'shared_tickets' | 'shared_comments' | 'details' | 'notes'
+export type OrganizationFieldName =
+    | "tags"
+    | "domains"
+    | "group_id"
+    | "shared_tickets"
+    | "shared_comments"
+    | "details"
+    | "notes"
 
 export interface Organization {
     details: string

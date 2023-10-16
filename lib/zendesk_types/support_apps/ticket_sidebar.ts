@@ -1,17 +1,39 @@
 import { Group, User, Identity, TimeZone } from "./common"
 import { Organization } from "./organization_sidebar"
 
-export type ChannelName = 'web' | 'internal' | 'voice' | 'chat' | 'native_messaging' | 'line' | 'wechat' | 'sunshine_conversations_twitter_dm' | 'sunshine_conversations_facebook_messenger' | 'instagram_dm' | 'whatsapp' | 'any_channel' | 'twitter' | 'facebook' | 'api' | 'chat_transcript'
-export type Priority = 'low' | 'normal' | 'high' | 'urgent'
-export type TicketStatus = 'new' | 'open' | 'pending' | 'hold' | 'solved'
-export type TicketType = 'question' | 'incident' | 'problem' | 'task'
-export type CommentType = 'facebookPrivateMessage' | 'facebookWallReply' | 'internalNote' | 'publicReply' | 'twitterDirectMessage' | 'twitterReply'
+export type ChannelName =
+    | "web"
+    | "internal"
+    | "voice"
+    | "chat"
+    | "native_messaging"
+    | "line"
+    | "wechat"
+    | "sunshine_conversations_twitter_dm"
+    | "sunshine_conversations_facebook_messenger"
+    | "instagram_dm"
+    | "whatsapp"
+    | "any_channel"
+    | "twitter"
+    | "facebook"
+    | "api"
+    | "chat_transcript"
+export type Priority = "low" | "normal" | "high" | "urgent"
+export type TicketStatus = "new" | "open" | "pending" | "hold" | "solved"
+export type TicketType = "question" | "incident" | "problem" | "task"
+export type CommentType =
+    | "facebookPrivateMessage"
+    | "facebookWallReply"
+    | "internalNote"
+    | "publicReply"
+    | "twitterDirectMessage"
+    | "twitterReply"
 
 export type DisableSave = () => void
 export type EnableSave = () => void
 
 export interface Ticket {
-    assignee: { readonly group: Group, readonly user: User } 
+    assignee: { readonly group: Group; readonly user: User }
     brand: Brand
     readonly collaborators: User[] // add and remove
     readonly comment: Comment
@@ -26,7 +48,7 @@ export interface Ticket {
             readonly id: number | null
             readonly avatar: string
             readonly name: string
-            readonly role: 'system' | 'trigger' | 'agent' | 'admin' | 'end-user'
+            readonly role: "system" | "trigger" | "agent" | "admin" | "end-user"
         }
         readonly channel: {
             readonly name: ChannelName
@@ -58,18 +80,18 @@ export interface Ticket {
     readonly updatedAt: string
     readonly via: Via
     readonly viewers: CollisionUser[]
-    sendMessage: (arg: { channel: string, message: string }) => void,
-    addCollaborator: (arg: { email: string } | { id: string }) => void,
-    removeCollaborator: (arg: { email: string } | { id: string }) => void,
-    addTags: (arg: string[]) => void,
-    removeTags: (arg: string[]) => void,
+    sendMessage: (arg: { channel: string; message: string }) => void
+    addCollaborator: (arg: { email: string } | { id: string }) => void
+    removeCollaborator: (arg: { email: string } | { id: string }) => void
+    addTags: (arg: string[]) => void
+    removeTags: (arg: string[]) => void
 }
 
 export interface TicketSetters {
-    assignee: { groupId: string, userId?: string }
+    assignee: { groupId: string; userId?: string }
     brand: Brand | { id: string }
     recipient: string
-    requester: { email: string, name: string }// | { id: string }
+    requester: { email: string; name: string } // | { id: string }
     sharedWith: { id: string }
 }
 
@@ -85,9 +107,9 @@ export interface Comment {
     type: CommentType
     readonly useRichText: boolean
 
-    appendHtml(arg: string): { 'errors': any }
-    appendMarkdown(arg: string): { 'errors': any }
-    appendText(arg: string): { 'errors': any }
+    appendHtml(arg: string): { errors: any }
+    appendMarkdown(arg: string): { errors: any }
+    appendText(arg: string): { errors: any }
 }
 
 export interface CommentSetters {}
@@ -188,7 +210,9 @@ export interface Form {
     id: number
 }
 
-export interface FormSetters { id: { id: number } | number }
+export interface FormSetters {
+    id: { id: number } | number
+}
 
 export interface Macro {
     id: number

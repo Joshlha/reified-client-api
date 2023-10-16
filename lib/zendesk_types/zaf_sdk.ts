@@ -6,7 +6,7 @@ export declare class Client {
     context(): Promise<any>
     /**
      * Gets data from the UI asynchronously. For a complete list of supported paths, see:
-     * 
+     *
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-core-api/core_api/ | Core Apps API}
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-support-api/introduction/ | Support Apps API}
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-chat-api/introduction/ | Chat Apps API}
@@ -19,7 +19,7 @@ export declare class Client {
      * Returns whether or not an event has the specified handler attached to it.
      * @param {string} name the name of the event
      * @param {any} handler the handler you want to test
-     * @returns {boolean} 
+     * @returns {boolean}
      */
     has(name: string, handler: any): boolean
     /**
@@ -30,7 +30,7 @@ export declare class Client {
     instance(instanceGuid: string): Client
     /**
      * Executes an action identified by the name path parameter, or multiple actions defined in the obj argument, within the product interface. For a complete list of supported paths, see:
-     * 
+     *
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-core-api/core_api/ | Core Apps API}
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-support-api/introduction/ | Support Apps API}
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-chat-api/introduction/ | Chat Apps API}
@@ -78,12 +78,12 @@ export declare class Client {
     request(options: string | ClientRequestOptions): Promise<any>
     /**
      * Sets data in the UI asynchronously. For a complete list of supported paths, see:
-     * 
+     *
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-core-api/core_api/ | Core Apps API}
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-support-api/introduction/ | Support Apps API}
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-chat-api/introduction/ | Chat Apps API}
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-sell-api/introduction/ | Sell Apps API}
-     * 
+     *
      * Some path segments can take arguments that you can specify using a colon syntax. For example, to set the due date of a task, you could call `client.set('ticket.customField:due_date', new Date())`.
      * @param {string} key the path to which to set the value `value`
      * @param {any} value the value to set
@@ -92,16 +92,16 @@ export declare class Client {
     set(key: string, value: any): Promise<any>
     /**
      * Sets data in the UI asynchronously. For a complete list of supported paths, see:
-     * 
+     *
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-core-api/core_api/ | Core Apps API}
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-support-api/introduction/ | Support Apps API}
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-chat-api/introduction/ | Chat Apps API}
      * - {@link https://developer.zendesk.com/api-reference/apps/apps-sell-api/introduction/ | Sell Apps API}
-     * 
+     *
      * Some path segments can take arguments that you can specify using a colon syntax. For example, to set the due date of a task, you could call `client.set('ticket.customField:due_date', new Date())`.
-    * @param {{ [name: string]: any }} obj an object containing the keys and values to update
-    * @returns {Promise<any>} A JavaScript Promise object.
-    */
+     * @param {{ [name: string]: any }} obj an object containing the keys and values to update
+     * @returns {Promise<any>} A JavaScript Promise object.
+     */
     set(obj: { [name: string]: any }): Promise<any>
     /**
      * Triggers the specified event on the client.
@@ -113,23 +113,23 @@ export declare class Client {
 }
 
 export interface ClientRequestOptions {
-    accepts?: any,
-    autoRetry?: boolean,
-    cache?: boolean,
-    contentType?: boolean | string,
-    cors?: boolean,
-    crossDomain?: boolean,
+    accepts?: any
+    autoRetry?: boolean
+    cache?: boolean
+    contentType?: boolean | string
+    cors?: boolean
+    crossDomain?: boolean
     data?: any | string | any[]
-    dataType?: string,
-    headers?: any,
-    httpCompleteResponse?: boolean,
-    ifModified?: boolean,
-    jwt?: any,
-    mimeType?: string,
-    secure?: boolean,
-    timeout?: number,
-    traditional?: boolean,
-    type?: string,
-    url: string,
+    dataType?: string
+    headers?: any
+    httpCompleteResponse?: boolean
+    ifModified?: boolean
+    jwt?: any
+    mimeType?: string
+    secure?: boolean
+    timeout?: number
+    traditional?: boolean
+    type?: string
+    url: string
     xhrFields?: any
 }

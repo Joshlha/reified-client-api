@@ -1,4 +1,3 @@
-
 export interface TicketEditor {
     readonly targetChannel: TargetChannel
     readonly capabilities: Capabilities
