@@ -1,5 +1,11 @@
 # Reified Client API
 
+> ### re·i·fy
+> /ˈrēəˌfī/<br>
+> *verb* **formal**<br>
+> make (something abstract) more concrete or real<br>
+> *"these instincts are, in humans, reified as verbal constructs"*
+
 A typescript API to help Zendesk app developers with creating type-safe projects. 
 
 ## Features
@@ -15,7 +21,7 @@ const ticketObject = (await client.get("ticket"))["ticket"]
 const ticketObject = await client.get(Support.TicketSidebar.Objects.ticket)
 ```
 
-The API is broken up first by Zendesk API, then the path type (Event, Object, Action), then then app location
+The API is broken up first by Zendesk API, then by app location, then by path type (Event, Object, Action).
 
 ### Getting an object
 ```
@@ -42,7 +48,7 @@ client.invoke(Support.TicketSidebar.Actions.ticketFields(2).enable)
 ```
 
 ### Getting custom fields
-The `custom_field` path is only available for a few zendesk objects such as ticket or user.
+The `custom_field` path is only available for a few zendesk objects, such as ticket or user.
 - Ensure non-null assertions are enabled by your linter or IDE
 - Place the assertion after `custom_field` before the invokation
 - The `custom_field` callable object will return a type of `unknown` by default. You must specify the type via a type parameter or by casting.
@@ -53,8 +59,8 @@ const customUserField = await client.get(Support.UserSidebar.Objects.user.custom
 ```
 
 ### Indexable objects and properties
-You can get individual elements of indexable objects and properties via their callable object paths, and passing in either an integer or string.
-Refer to the ZAFClient api for which to use. Most indexables can take either an integer index or a string DD
+You can get individual elements of indexable objects and properties via their callable object paths and passing in either an integer or string.
+Refer to the ZAFClient api for which to use. Most indexables can take either an integer index or a string ID.
 ```
 const firstGroupNameOfSecondCommentAuthor = await client.get(Support.TicketSidebar.Objects.ticket.comments(2).author.groups(1).name)
 ```
@@ -77,6 +83,8 @@ const userObj = returnedObj[objsToGet[1]._path] as User
 ```
 
 ## Usage
+
+*If you don't have a typescript project set up, see [this scaffold](https://github.com/Joshlha/zd-ts-react) for a Zendesk app written in Typescript*
 
 1. In your existing typescript project, run 
 ```
@@ -126,7 +134,7 @@ Since types are only implemented for the `Support` and `Core` APIs, there is sti
     - [ ] Note Editor
     - [ ] Visit Composer
 
-Types representing actual Zendesk objects or functions which are returned from or passed to API calls are kept in `lib/zendesk_types`. The actual API, along with the helper types and functions that make it work, is simply in `lib/` and current has the `Core` and `Support` packages.
+Types representing actual Zendesk objects or functions which are returned from or passed to API calls are kept in `lib/zendesk_types`. The actual API, along with the helper types and functions that make it work, are simply in `lib/` and currently contains the `Core` and `Support` APIs.
 
 ## Contribution
 
