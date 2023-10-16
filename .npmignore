@@ -5,3 +5,6 @@ package-lock.json
 babel.config.js
 main_test.test.ts
 .github/
+LICENSE
+.prettierrc.json
+babel.config.json
