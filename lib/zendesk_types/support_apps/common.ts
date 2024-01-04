@@ -11,19 +11,24 @@ export type Create = (newInstance: {
     location: string
     url: string
     size?: { width: string; height: string }
-}) => any[]
+}) => {
+    errors: any
+    "instances.create": Instance[]
+}
+
+export type Instance = {
+    instanceGuid: string
+    host: string
+    product: string
+    location: string
+    account: {
+        subdomain: string
+    }
+    status: string
+}
 
 export type Instances = {
-    [instanceGuid: string]: {
-        instanceGuid: string
-        host: string
-        product: string
-        location: string
-        account: {
-            subdomain: string
-        }
-        status: string
-    }
+    [instanceGuid: string]: Instance
 }
 
 // Objects
