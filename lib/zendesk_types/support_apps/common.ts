@@ -1,12 +1,19 @@
 import { Organization } from "./organization_sidebar"
 
+export type Dimension =
+    | { width: number | string; height: number | string }
+    | { width: number | string }
+    | { height: number | string }
+
 // Actions
-export type Dimension = (
-    dims:
-        | { width: number | string; height: number | string }
-        | { width: number | string }
-        | { height: number | string },
-) => { width: string; height: string }
+export type Resize = (dims: Dimension) => {
+    errors: any
+    resize: {
+        width: string
+        height: string
+    }
+}
+
 export type Create = (newInstance: {
     location: string
     url: string

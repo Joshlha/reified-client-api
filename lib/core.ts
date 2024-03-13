@@ -1,13 +1,9 @@
 import { ZendeskAction, ZendeskProperty, ZendeskEvent } from "./wrapper_types"
-import {
-    Dimension,
-    Create,
-    Instances,
-} from "./zendesk_types/support_apps/common"
+import { Resize, Create, Instances } from "./zendesk_types/support_apps/common"
 
 export namespace Core {
     export namespace Actions {
-        export const resize: ZendeskAction<Dimension> = { _path: "resize" }
+        export const resize: ZendeskAction<Resize> = { _path: "resize" }
 
         export namespace instances {
             export const create: ZendeskAction<Create> = {
@@ -79,7 +75,9 @@ export namespace Core {
             export const scroll: ZendeskEvent<(data: any) => any> = {
                 _path: "window.scroll",
             }
-            export const resize: ZendeskEvent<(data: any) => any> = {
+            export const resize: ZendeskEvent<
+                (data: { width: number; height: number }) => void
+            > = {
                 _path: "window.resize",
             }
         }
