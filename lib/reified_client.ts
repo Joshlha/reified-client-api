@@ -5,7 +5,7 @@ import {
     ZendeskWritableProperty,
     ZendeskAction,
 } from "./wrapper_types"
-import { MetaData } from "./zendesk_types/support_apps/common"
+import { Context, MetaData } from "./zendesk_types/support_apps/common"
 import { Client, ClientRequestOptions } from "./zendesk_types/zaf_sdk"
 
 export class ReifiedClient {
@@ -15,7 +15,7 @@ export class ReifiedClient {
         this.zafClient = client
     }
 
-    async context(): Promise<any> {
+    async context(): Promise<Context> {
         return await this.zafClient.context()
     }
 
@@ -32,7 +32,7 @@ export class ReifiedClient {
     }
 
     async metadata(): Promise<MetaData> {
-        return (await this.zafClient.metadata()) as MetaData
+        return await this.zafClient.metadata()
     }
 
     on<T>(event: ZendeskEvent<T>, handler: T): void {

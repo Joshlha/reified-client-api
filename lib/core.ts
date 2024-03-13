@@ -3,6 +3,7 @@ import {
     Dimension,
     Create,
     Instances,
+    AppRegistrationData,
 } from "./zendesk_types/support_apps/common"
 
 export namespace Core {
@@ -49,7 +50,7 @@ export namespace Core {
 
     export namespace Events {
         export namespace app {
-            export const registered: ZendeskEvent<(data: any) => any> = {
+            export const registered: ZendeskEvent<(data: AppRegistrationData) => void> = {
                 _path: "app.registered",
             }
             export const activated: ZendeskEvent<(data: any) => any> = {
