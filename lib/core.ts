@@ -75,7 +75,9 @@ export namespace Core {
             export const scroll: ZendeskEvent<(data: any) => any> = {
                 _path: "window.scroll",
             }
-            export const resize: ZendeskEvent<(data: any) => any> = {
+            export const resize: ZendeskEvent<
+                (data: { width: number; height: number }) => void
+            > = {
                 _path: "window.resize",
             }
         }
