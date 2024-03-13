@@ -99,6 +99,7 @@ export interface Context {
     }
     readonly location: string
     readonly ticketId: number
+    readonly host: string
 }
 
 export interface MetaData {
@@ -109,6 +110,12 @@ export interface MetaData {
     readonly version: string
     readonly stripe_subscription_id?: string
     readonly plan?: Record<string, string>
+}
+
+export interface AppRegistrationData {
+  context: Context,
+  metadata: MetaData,
+  iframe_session_timeout: number
 }
 
 // Addition Properties
