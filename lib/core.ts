@@ -1,5 +1,11 @@
 import { ZendeskAction, ZendeskProperty, ZendeskEvent } from "./wrapper_types"
-import { Resize, Create, Instances } from "./zendesk_types/support_apps/common"
+import {
+    Dimension,
+    Create,
+    Instances,
+    AppRegistrationData,
+    Resize
+} from "./zendesk_types/support_apps/common"
 
 export namespace Core {
     export namespace Actions {
@@ -45,7 +51,7 @@ export namespace Core {
 
     export namespace Events {
         export namespace app {
-            export const registered: ZendeskEvent<(data: any) => any> = {
+            export const registered: ZendeskEvent<(data: AppRegistrationData) => void> = {
                 _path: "app.registered",
             }
             export const activated: ZendeskEvent<(data: any) => any> = {

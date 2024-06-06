@@ -98,7 +98,7 @@ export interface AppsTray {
     hide(): { "appsTray.isVisible": false }
 }
 
-export interface MetaData {
+export interface Context {
     readonly instanceGuid: string
     readonly product: string
     readonly account: {
@@ -106,6 +106,23 @@ export interface MetaData {
     }
     readonly location: string
     readonly ticketId: number
+    readonly host: string
+}
+
+export interface MetaData {
+    readonly appId: string
+    readonly name?: string
+    readonly installationId: string
+    readonly settings: Record<string, string>
+    readonly version: string
+    readonly stripe_subscription_id?: string
+    readonly plan?: Record<string, string>
+}
+
+export interface AppRegistrationData {
+  context: Context,
+  metadata: MetaData,
+  iframe_session_timeout: number
 }
 
 // Addition Properties
