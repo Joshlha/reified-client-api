@@ -12,4 +12,8 @@ describe("Paths Test", () => {
     test("Indexable Path", () => {
         expect(Support.TicketSidebar.Objects.ticket.collaborators(4).identities(3).type._path).toBe("ticket.collaborators.4.identities.3.type")
     })
+    test("TopBar event pane deactivated", () => {
+        expect(Support.TopBar.Events.pane.deactivated._path).toBe("pane.deactivated")
+        expect(Support.TopBar.Events.pane.deactivatedactivated._path).toBe(Support.TopBar.Events.pane.deactivated._path)
+    }) 
 })
