@@ -15,5 +15,9 @@ describe("Paths Test", () => {
     test("TopBar event pane deactivated", () => {
         expect(Support.TopBar.Events.pane.deactivated._path).toBe("pane.deactivated")
         expect(Support.TopBar.Events.pane.deactivatedactivated._path).toBe(Support.TopBar.Events.pane.deactivated._path)
-    }) 
+    })
+    test("NavBar event pane deactivated", () => {
+      expect(Support.NavBar.Events.pane.deactivated._path).toBe("pane.deactivated")
+      expect(Support.NavBar.Events.pane.deactivatedactivated._path).toBe(Support.NavBar.Events.pane.deactivated._path)
+    })
 })
