@@ -2141,9 +2141,12 @@ export namespace Support {
                 > = {
                     _path: "pane.activated",
                 }
-                export const deactivatedactivated: ZendeskEvent<
+                export const deactivated: ZendeskEvent<
                     () => void | Promise<void>
-                > = { _path: "pane.deactivated" }
+                  > = {
+                    _path: "pane.deactivated"
+                }
+                export const deactivatedactivated = deactivated // backwards compatibility
             }
             export namespace app {
                 export namespace route {
