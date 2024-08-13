@@ -38,27 +38,7 @@ export interface Ticket {
     readonly collaborators: User[] // add and remove
     readonly comment: Comment
     readonly comments: CommentEvent[]
-    readonly conversation: {
-        readonly attachments: {
-            readonly contentType: string
-            readonly contentUrl: string
-            readonly filename: string
-        }[]
-        readonly author: {
-            readonly id: number | null
-            readonly avatar: string
-            readonly name: string
-            readonly role: "system" | "trigger" | "agent" | "admin" | "end-user"
-        }
-        readonly channel: {
-            readonly name: ChannelName
-        }
-        readonly message: {
-            readonly content: string | null
-            readonly contentType: ChannelName | null
-        }
-        readonly timestamp: string
-    }[]
+    readonly conversation: ConversationItem[]
     readonly createdAt: string
     readonly description: string
     // readonly editor: TicketEditorTypes.TicketEditor
@@ -110,6 +90,28 @@ export interface Comment {
     appendHtml(arg: string): { errors: any }
     appendMarkdown(arg: string): { errors: any }
     appendText(arg: string): { errors: any }
+}
+
+export interface ConversationItem {
+    readonly attachments: {
+        readonly contentType: string
+        readonly contentUrl: string
+        readonly filename: string
+    }[]
+    readonly author: {
+        readonly id: number | null
+        readonly avatar: string
+        readonly name: string
+        readonly role: "system" | "trigger" | "agent" | "admin" | "end-user"
+    }
+    readonly channel: {
+        readonly name: ChannelName
+    }
+    readonly message: {
+        readonly content: string | null
+        readonly contentType: ChannelName | null
+    }
+    readonly timestamp: string
 }
 
 export interface CommentSetters {}
