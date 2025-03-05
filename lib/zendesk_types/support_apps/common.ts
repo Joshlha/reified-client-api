@@ -120,9 +120,9 @@ export interface MetaData {
 }
 
 export interface AppRegistrationData {
-  context: Context,
-  metadata: MetaData,
-  iframe_session_timeout: number
+    context: Context
+    metadata: MetaData
+    iframe_session_timeout: number
 }
 
 // Addition Properties

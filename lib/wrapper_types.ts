@@ -19,8 +19,8 @@ export type ZendeskObject<T> = {
     [K in ReadonlyKeys<NonFunctions<T>>]: T[K] extends string | number | boolean
         ? ZendeskProperty<T[K]>
         : T[K] extends Array<any>
-        ? ZendeskIndexable<T[K]>
-        : ZendeskObject<T[K]>
+          ? ZendeskIndexable<T[K]>
+          : ZendeskObject<T[K]>
 } & {
     [K in WritableKeys<NonFunctions<T>>]: T[K] extends
         | string
@@ -68,16 +68,16 @@ export type ZendeskActionPath<T> = T extends any[]
                       : never
                   : never
               : T[K] extends Function
-              ? K
-              : T[K] extends object
-              ? IsEmptyObject<PickFunctions<T[K]>> extends false
-                  ? K
-                  : never
-              : never]: T[K] extends Function
+                ? K
+                : T[K] extends object
+                  ? IsEmptyObject<PickFunctions<T[K]>> extends false
+                      ? K
+                      : never
+                  : never]: T[K] extends Function
               ? ZendeskAction<T[K]>
               : T[K] extends any[]
-              ? IndexableActionPath<T[K]>
-              : ZendeskActionPath<T[K]>
+                ? IndexableActionPath<T[K]>
+                : ZendeskActionPath<T[K]>
       }
 
 export type IndexableActionPath<T> = (
@@ -94,11 +94,8 @@ export type IsEmptyObject<Obj extends Record<PropertyKey, unknown>> = [
 
 export type Unarray<T> = T extends Array<infer U> ? U : T
 
-export type IfEquals<X, Y, A = X, B = never> = (<T>() => T extends X
-    ? 1
-    : 2) extends <T>() => T extends Y ? 1 : 2
-    ? A
-    : B
+export type IfEquals<X, Y, A = X, B = never> =
+    (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2 ? A : B
 
 export type WritableKeys<T> = {
     [P in keyof T]-?: IfEquals<
@@ -132,11 +129,11 @@ export type RelativeType<T extends keyof S, S> = T extends keyof RelatedTypes<S>
 export type RelatedTypes<T> = T extends Ticket
     ? TicketSetters
     : T extends User
-    ? UserSetters
-    : T extends Form
-    ? FormSetters
-    : T extends Comment
-    ? CommentSetters
-    : T extends Organization
-    ? OrganizationSetters
-    : never
+      ? UserSetters
+      : T extends Form
+        ? FormSetters
+        : T extends Comment
+          ? CommentSetters
+          : T extends Organization
+            ? OrganizationSetters
+            : never
